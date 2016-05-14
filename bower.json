@@ -1,0 +1,20 @@
+{
+  "name": "meta_analyzer",
+  "description": "Meta Analysis in rails",
+  "main": "",
+  "authors": [
+    "Tom Reznick <thomas.reznick@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass": "^3.3.6"
+  }
+}
