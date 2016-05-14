@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'static#index'
   get 'static/about'
+
+  resources :meta_analyses
 end

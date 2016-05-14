@@ -1,0 +1,5 @@
+<%= simple_form_for @meta_analysis do |f| %>
+  <%= f.input :description %>
+  <%= f.button :submit %>
+  <%= link_to "Cancel", meta_analyses_path, class: 'btn btn-default' %>
+<% end %>
