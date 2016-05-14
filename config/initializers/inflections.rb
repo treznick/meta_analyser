@@ -14,3 +14,7 @@
 # ActiveSupport::Inflector.inflections(:en) do |inflect|
 #   inflect.acronym 'RESTful'
 # end
+ActiveSupport::Inflector.inflections do |inflect|
+  inflect.irregular 'meta_analysis', 'meta_analyses'
+  inflect.irregular 'analysis', 'analyses'
+end
