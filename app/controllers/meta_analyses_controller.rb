@@ -64,7 +64,8 @@ class MetaAnalysesController < ApplicationController
   def meta_analysis_params
     if params[:meta_analysis]
       params.require(:meta_analysis).
-        permit(:description)
+        permit(:description,
+              treatment_ids: [])
     else
       {}
     end

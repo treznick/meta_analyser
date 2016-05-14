@@ -1,5 +1,9 @@
 <%= simple_form_for @meta_analysis, html: { class: 'form-horizontal' } do |f| %>
   <%= f.input :description, wrapper: :horizontal_form %>
+  <%= f.association :treatments,
+    as: :check_boxes,
+    wrapper: :horizontal_scrollable,
+    label_method: ->(treatment) { "#{treatment.study.name} - #{treatment.description.truncate(100)}" } %>
   <div class="form-actions form-group">
     <div class="col-sm-offset-3 col-sm-9">
       <%= f.button :submit %>
