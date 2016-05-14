@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   get 'static/about'
 
   resources :meta_analyses
+  resources :studies
 end

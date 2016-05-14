@@ -9,3 +9,8 @@ $icon-font-path: "bootstrap-sass/assets/fonts/bootstrap/";
 .main {
   padding: 40px 15px;
 };
+
+.scrollable {
+  height: 160px;
+  overflow-y: auto;
+}
