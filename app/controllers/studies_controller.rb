@@ -70,7 +70,15 @@ class StudiesController < ApplicationController
 
   def build_study
     @study ||= Study.new
-    @study.attributes = study_params
+    @study.attributes = deal_with_nested_params(study_params)
+  end
+
+  def deal_with_nested_params(params)
+    if params['treatments_attributes']
+      sub_params_with_numeric_keys = params['treatments_attributes']
+      params['treatments_attributes'] = sub_params_with_numeric_keys.values
+    end
+    params
   end
 
   def study_params
@@ -78,7 +86,12 @@ class StudiesController < ApplicationController
       params.require(:study).
         permit(:name,
                :authors,
-               :year)
+               :year,
+               treatments_attributes: [:id,
+                                       :description,
+                                       :effect_size,
+                                       :standard_error,
+                                       :_destroy])
     else
       {}
     end
