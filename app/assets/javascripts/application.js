@@ -6,4 +6,5 @@
 //= require datatables.net-bs
 //= require datatables.net-responsive-bs
 //= require init_data_tables
+//= require cocoon
 //= require_tree .
