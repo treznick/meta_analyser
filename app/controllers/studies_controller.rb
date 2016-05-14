@@ -3,6 +3,12 @@ class StudiesController < ApplicationController
     load_studies
   end
 
+  def show
+    load_study
+    @treatment = @study.treatments.new
+    load_treatments
+  end
+
   def new
     build_study
   end
@@ -49,6 +55,10 @@ class StudiesController < ApplicationController
   end
 
   private
+
+  def load_treatments
+    @treatments ||= Treatment.where(study: @study)
+  end
 
   def load_studies
     @studies ||= Study.all

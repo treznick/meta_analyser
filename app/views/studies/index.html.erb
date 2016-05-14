@@ -12,7 +12,7 @@
     <% @studies.each do |study| %>
       <tr>
         <td><%= study.id %></td>
-        <td><%= study.name %></td>
+        <td><%= link_to study.name, study_path(study) %></td>
         <td><%= study.authors %></td>
         <td><%= study.year %></td>
         <td>

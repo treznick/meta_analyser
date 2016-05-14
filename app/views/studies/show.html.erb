@@ -1,0 +1,66 @@
+<p class="h3 pull-right">
+  <%= link_to edit_study_path(@study), class: "btn btn-default" do %>
+    <i class="fa fa-pencil"></i>
+  <% end %>
+  <%= link_to study_path(@study), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default" do %>
+    <i class="fa fa-trash"></i>
+  <% end %>
+</p>
+<h2><%= "#{@study.name}" %></h2>
+<div class="panel">
+  <dl class="dl-horizontal">
+    <dt>Authors</dt>
+    <dd><%= @study.authors %></dd>
+    <dt>Year</dt>
+    <dd><%= @study.year %></dd>
+  </dl>
+</div>
+<h3>New Treatment</h3>
+<%= render 'flashes' %>
+<%= simple_form_for [@study, @treatment],
+  html: { class: 'form-horizontal' } do |f| %>
+  <%= f.input :description, wrapper: :horizontal_form %>
+  <%= f.input :effect_size,
+    as: :decimal,
+    input_html: { min: '0', step: 'any' },
+    wrapper: :horizontal_form %>
+  <%= f.input :standard_error, as: :decimal, wrapper: :horizontal_form %>
+  <div class="form-actions form-group">
+    <div class="col-sm-offset-3 col-sm-9">
+      <%= f.button :submit %>
+      <%= link_to "Cancel", study_path(@study), class: 'btn btn-default' %>
+    </div>
+  </div>
+<% end %>
+<h3>Treatments</h3>
+<table class="table table-striped data-table">
+  <thead>
+    <th>ID</th>
+    <th>Description</th>
+    <th>Effect Size</th>
+    <th>Standard Error</th>
+    <th></th>
+  </thead>
+  <tbody>
+    <% @treatments.each do |treatment| %>
+      <tr>
+        <td><%= treatment.id %></td>
+        <td><%= treatment.description %></td>
+        <td><%= treatment.effect_size %></td>
+        <td><%= treatment.standard_error %></td>
+        <td>
+          <div class="btn-group pull-right">
+            <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-cog"></i>
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu pull-right">
+              <li><%= link_to 'Edit', edit_study_treatment_path(@study, treatment) %></li>
+              <li><%= link_to 'Delete', study_treatment_path(@study, treatment), method: :delete, title: 'Delete', data: { confirm: "Are you sure?" } %></li>
+            </ul>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
