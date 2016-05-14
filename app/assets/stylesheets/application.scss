@@ -1,6 +1,8 @@
 $icon-font-path: "bootstrap-sass/assets/fonts/bootstrap/";
 @import "bootstrap-sass/assets/stylesheets/bootstrap-sprockets";
 @import "bootstrap-sass/assets/stylesheets/bootstrap";
+@import "datatables.net-bs/css/dataTables.bootstrap";
+@import "datatables.net-responsive-bs/css/responsive.bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
 

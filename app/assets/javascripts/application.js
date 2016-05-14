@@ -1,4 +1,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sass/assets/javascripts/bootstrap-sprockets
+//= require datatables.net
+//= require datatables.net-responsive
+//= require datatables.net-bs
+//= require datatables.net-responsive-bs
+//= require init_data_tables
 //= require_tree .
